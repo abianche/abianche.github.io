@@ -19,8 +19,6 @@
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>Alessio Bianchetti</title>
-  <link rel="manifest" href="manifest.json">
-
 
   <!-- HTML Meta Tags -->
   <meta name="description" content="My personal profile.">
@@ -40,15 +38,27 @@
   <meta name="twitter:description" content="My personal profile.">
   <meta name="twitter:image" content="/social_preview.png">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#212121" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" type="text/css" />
+  </noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"
+      type="text/css>" />
+  </noscript>
 
 </head>
 
 <body>
-  <div class="header">
+  <div class=" header">
     <div class="header-content">
       <div class="header-title">ALESSIO BIANCHETTI</div>
       <a id="get-cv" class="header-button" target="_blank" href="documents/CV - Alessio Bianchetti.pdf">GET CV</a>
@@ -57,7 +67,7 @@
   </div>
 
   <div class="centered-image">
-    <img src="./images/profile.png" alt="Profile picture">
+    <img src="./images/profile.webp" height="250" width="242" alt="Profile picture">
   </div>
 
   <div class="centered-content">
@@ -73,29 +83,27 @@
       professional allows me to leverage my expertise from any location.</p>
 
     <div class="social">
-      <a href="mailto:abianche@protonmail.com" target="_blank" rel="noopener noreferrer">
+      <a href="mailto:abianche@protonmail.com" aria-label="Send email" target="_blank" rel="noopener noreferrer">
         <i class="fa-solid fa-envelope"></i>
       </a>
-      <a href="https://github.com/abianche" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/abianche" aria-label="Open GitHub profile" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-github"></i>
       </a>
-      <a href="https://www.linkedin.com/in/alessio-bianchetti" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/alessio-bianchetti" aria-label="Open LinkedIn profile" target="_blank"
+        rel="noopener noreferrer">
         <i class="fa-brands fa-linkedin"></i>
       </a>
-      <a href="https://www.instagram.com/alessio.bianchetti" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/alessio.bianchetti" aria-label="Open Instagram profile" target="_blank"
+        rel="noopener noreferrer">
         <i class="fa-brands fa-instagram"></i>
       </a>
     </div>
   </div>
 
   <div class="footer">
-    Made with &#9825; using the Web
-    <br />
-    &copy;
-    <script>document.write(new Date().getFullYear());</script>
-    Alessio Bianchetti
-    <br />
-    All rights reserved
+    <p>Made with &#9825; using the Web</p>
+    <p id="copyright"></p>
+    <p>All rights reserved</p>
   </div>
 
   <script src="./script.js"></script>
