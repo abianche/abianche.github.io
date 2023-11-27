@@ -5,6 +5,8 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
+
+
 .header {
     position: sticky;
     top: 0;
@@ -47,6 +49,20 @@ body {
     align-items: center;
     padding: 0 8%;
     margin-top: 20px;
+}
+
+.centered-content>h1 {
+    text-align: center;
+}
+
+.centered-content>h2 {
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.centered-content>h5 {
+    margin-top: 0px;
+    text-align: center;
 }
 
 @media screen and (max-width: 600px) {
