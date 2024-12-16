@@ -2,7 +2,8 @@ body {
     margin: 0;
     background-color: #212121;
     color: white;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+    font-display: swap;
 }
 
 .header {

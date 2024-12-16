@@ -9,7 +9,7 @@ const texts = {
     desc4:
       "As an early adopter, I eagerly embrace cutting-edge technologies, and my work as a remote professional allows me to leverage my expertise from any location.",
     desc5:
-      "I embrace the discipline and strength of kickboxing, a pursuit that not only keeps me physically fit but also instills a sense of balance and determination that permeates my professional endeavors.",
+      "I embrace the discipline and strength of combat sports, a pursuit that not only keeps me physically fit but also instills a sense of balance and determination that permeates my professional endeavors.",
   },
   it: {
     desc1:
@@ -21,11 +21,11 @@ const texts = {
     desc4:
       "Come early adopter, abbraccio con entusiasmo le tecnologie all'avanguardia, e il mio lavoro come professionista remoto mi permette di sfruttare la mia esperienza da qualsiasi luogo.",
     desc5:
-      "Abbraccio la disciplina e la forza della kickboxing, un'attività che non solo mi mantiene in forma fisicamente ma infonde anche un senso di equilibrio e determinazione che permea i miei sforzi professionali.",
+      "Abbraccio la disciplina e la forza dello sport da combattimento, un'attività che non solo mi mantiene in forma fisicamente ma infonde anche un senso di equilibrio e determinazione che permea i miei sforzi professionali.",
   },
 };
 
-const userLang = navigator.language || navigator.userLanguage;
+const userLang = navigator.language ?? navigator.userLanguage;
 const defaultLang = userLang.startsWith("it") ? "it" : "en";
 
 function changeLanguage(lang) {
@@ -49,4 +49,5 @@ document.getElementById(
 
 window.onload = function () {
   changeLanguage(defaultLang);
+  document.getElementById("content").style.display = "block";
 };
