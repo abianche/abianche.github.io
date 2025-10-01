@@ -23,6 +23,10 @@ const texts = {
 
 const userLang = navigator.language ?? navigator.userLanguage;
 const defaultLang = userLang.startsWith("it") ? "it" : "en";
+const themeStorageKey = "theme-preference";
+const themeToggleButton = document.getElementById("themeToggle");
+const themeToggleIcon = document.getElementById("themeToggleIcon");
+const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
 function changeLanguage(lang) {
   document.getElementById("desc1").innerText = texts[lang].desc1;
@@ -31,6 +35,65 @@ function changeLanguage(lang) {
   document.getElementById("desc4").innerText = texts[lang].desc4;
   document.getElementById("desc5").innerText = texts[lang].desc5;
 }
+
+function getStoredTheme() {
+  try {
+    const storedTheme = localStorage.getItem(themeStorageKey);
+    if (storedTheme === "light" || storedTheme === "dark") {
+      return storedTheme;
+    }
+  } catch (error) {
+    // Ignore storage errors and fall back to defaults
+  }
+  return null;
+}
+
+function applyTheme(theme) {
+  const resolvedTheme = theme === "light" ? "light" : "dark";
+  const isLight = resolvedTheme === "light";
+
+  document.body.classList.toggle("light-theme", isLight);
+  document.body.classList.toggle("dark-theme", !isLight);
+
+  if (themeToggleIcon) {
+    themeToggleIcon.classList.toggle("fa-sun", isLight);
+    themeToggleIcon.classList.toggle("fa-moon", !isLight);
+  }
+
+  if (themeToggleButton) {
+    themeToggleButton.setAttribute(
+      "aria-label",
+      isLight ? "Switch to dark theme" : "Switch to light theme"
+    );
+    themeToggleButton.setAttribute("aria-pressed", isLight ? "true" : "false");
+  }
+
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute("content", isLight ? "#f5f5f5" : "#212121");
+  }
+
+  try {
+    localStorage.setItem(themeStorageKey, resolvedTheme);
+  } catch (error) {
+    // Ignore storage errors so the toggle keeps working
+  }
+}
+
+if (themeToggleButton) {
+  themeToggleButton.addEventListener("click", function () {
+    const nextTheme = document.body.classList.contains("light-theme")
+      ? "dark"
+      : "light";
+    applyTheme(nextTheme);
+  });
+}
+
+const storedTheme = getStoredTheme();
+const prefersLightTheme = window.matchMedia
+  ? window.matchMedia("(prefers-color-scheme: light)").matches
+  : false;
+const initialTheme = storedTheme || (prefersLightTheme ? "light" : "dark");
+applyTheme(initialTheme);
 
 document
   .getElementById("languageSwitcher")
