@@ -42,10 +42,9 @@ function getStoredTheme() {
     if (storedTheme === "light" || storedTheme === "dark") {
       return storedTheme;
     }
-  } catch (error) {
-    // Ignore storage errors and fall back to defaults
+  } catch {
+    return null;
   }
-  return null;
 }
 
 function applyTheme(theme) {
@@ -74,7 +73,7 @@ function applyTheme(theme) {
 
   try {
     localStorage.setItem(themeStorageKey, resolvedTheme);
-  } catch (error) {
+  } catch {
     // Ignore storage errors so the toggle keeps working
   }
 }
